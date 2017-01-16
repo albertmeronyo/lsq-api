@@ -1,0 +1,10 @@
+#+ summary: List of 50 queries with additional parameters set for both structural and data-driven criteria useful for creating custom benchmarks
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+PREFIX sp: <http://spinrdf.org/sp#>
+SELECT ?query  FROM <http://data.semanticweb.org>
+ WHERE {
+    ?id sp:text ?query ; lsqv:resultSize ?rs ; lsqv:triplePatterns ?tp ;
+        lsqv:runTimeMs ?rt ; lsqv:usesFeature lsqv:Filter .
+   FILTER (?rs > 10 && ?tp <5  && ?rt < 50 ) }
+LIMIT 50

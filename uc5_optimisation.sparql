@@ -1,0 +1,8 @@
+#+ summary: Path queries that take the longest time
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+SELECT (COUNT(?id) AS ?starQueries)
+WHERE {
+  ?id lsqv:joinVertex  ?joinVertex ; lsqv:resultSize 0 .
+  ?joinVertex lsqv:joinVertexType lsqv:Path .
+    } 

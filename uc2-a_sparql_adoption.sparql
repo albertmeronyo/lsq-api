@@ -1,0 +1,5 @@
+#+ summary:  The number of queries using both UNION and FILTER
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+SELECT (COUNT(?queryId) AS ?unionFilterCount)
+WHERE {  ?queryId  lsqv:usesFeature lsqv:Union , lsqv:Filter . }

@@ -1,0 +1,11 @@
+#+ summary: All the queries relating to a given resource, in this case Michael Jackson
+
+PREFIX sp:<http://spinrdf.org/sp#>
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+SELECT  DISTINCT  ?query
+ WHERE {
+    ?id sp:text ?query .
+    { ?id lsqv:mentionsSubject <http://dbpedia.org/ontology/Michael_Jackson> }
+    UNION
+    { ?id lsqv:mentionsObject <http://dbpedia.org/ontology/Michael_Jackson> }
+ }

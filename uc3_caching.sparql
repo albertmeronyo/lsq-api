@@ -1,0 +1,9 @@
+#+ summary: Most frequently executed queries that take a long time to compute but have small result sizes that can be cheaply cached
+
+PREFIX lsqv:<http://lsq.aksw.org/vocab#>
+PREFIX sp:<http://spinrdf.org/sp#>
+SELECT DISTINCT ?query (COUNT(?exs) AS ?exsCount)
+ WHERE {
+    ?id sp:text ?query ; lsqv:resultSize ?rs ; lsqv:execution ?exs ; lsqv:runTimeMs ?rt .
+    FILTER (?rs < 100 && ?rt > 10000)}
+  GROUP BY ?query ORDER BY DESC(COUNT(?exsCount))

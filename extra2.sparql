@@ -1,0 +1,20 @@
+#+ summary: Get average of the different SPARQL query features from DBpedia query log
+
+PREFIX lsqv:<http://lsq.aksw.org/vocab#>
+PREFIX sp:<http://spinrdf.org/sp#>
+SELECT (AVG(?resultSize) AS ?resultSizeAvg) (AVG(?bgps) AS ?bgpsAvg)
+(AVG(?triplePatterns) AS ?triplePatternsAvg) (AVG(?joinVertices) AS ?joinVerticesAvg)
+(AVG(?meanJoinVerticesDegree) AS ?meanJoinVerticesDegreeAvg)
+(AVG(?meanTriplePatternSelectivity) AS ?meanTriplePatternSelectivityAvg)
+(AVG(?runTime) AS ?runTimeAvg)
+FROM <http://dbpedia.org>
+ WHERE {
+    ?id sp:text ?query .
+    ?id lsqv:resultSize ?resultSize .
+    ?id lsqv:bgps ?bgps.
+    ?id lsqv:triplePatterns ?triplePatterns .
+    ?id lsqv:joinVertices ?joinVertices .
+    ?id lsqv:meanJoinVerticesDegree   ?meanJoinVerticesDegree .
+    ?id lsqv:meanTriplePatternSelectivity ?meanTriplePatternSelectivity .
+    ?id lsqv:runTimeMs ?runTime .
+}

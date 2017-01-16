@@ -1,0 +1,12 @@
+#+ summary: Top agents by number of execution
+
+PREFIX lsqv:<http://lsq.aksw.org/vocab#>
+PREFIX sp:<http://spinrdf.org/sp#>
+SELECT DISTINCT ?agent (COUNT(?executions) AS ?executionsCount)
+ WHERE {
+    ?id sp:text ?query .
+    ?id lsqv:execution ?executions .
+    ?executions lsqv:agent  ?agent.
+     }
+  GROUP BY ?agent
+  ORDER BY DESC(COUNT(?executions))

@@ -1,0 +1,13 @@
+#+ summary: Parse errors encountered by a given agent, ordered by time
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+PREFIX lsqr: <http://lsq.aksw.org/res/>
+PREFIX sp: <http://spinrdf.org/sp#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?query ?time ?error
+ WHERE {
+    ?id sp:text ?query ; lsqv:parseError ?error ; lsqv:execution ?ex .
+    ?ex dct:issued ?time ;
+        lsqv:agent lsqr:A-WlFJE0QQRlhBVRNGRx1QGVdaRhNsN2YUW15R .
+ }
+ORDER BY ?time

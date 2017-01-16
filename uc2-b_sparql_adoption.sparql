@@ -1,0 +1,7 @@
+#+ summary:  The number of empty-result queries with path joins
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+SELECT (COUNT(?id) AS ?starQueries)
+WHERE {
+  ?id lsqv:joinVertex  ?joinVertex ; lsqv:resultSize 0 .
+  ?joinVertex lsqv:joinVertexType lsqv:Path . }

@@ -1,0 +1,11 @@
+#+ summary: Top queries by number of executions
+
+PREFIX lsqv:<http://lsq.aksw.org/vocab#>
+PREFIX sp:<http://spinrdf.org/sp#>
+SELECT DISTINCT ?id (COUNT(?executions) AS ?executionsCount)
+ WHERE {
+    ?id sp:text ?query .
+    ?id lsqv:execution ?executions.
+}
+  GROUP BY ?id
+  ORDER BY DESC(COUNT(?executions))
