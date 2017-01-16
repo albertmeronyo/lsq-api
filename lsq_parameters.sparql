@@ -6,6 +6,8 @@
 
 PREFIX lsqv: <http://lsq.aksw.org/vocab#>
 PREFIX sp: <http://spinrdf.org/sp#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
 SELECT *  FROM <http://data.semanticweb.org>
 WHERE {
     ?id sp:text ?query ;
