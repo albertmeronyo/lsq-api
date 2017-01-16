@@ -15,7 +15,7 @@ WHERE {
         sp:limit ?limit ;
         lsqv:bgps ?bgps ;
         lsqv:endpoint ?endpoint ;
-        lsqv:joinVertices ;
+        lsqv:joinVertices ?jv ;
         lsqv:resultSize ?rs ;
         lsqv:triplePatterns ?tp ;
         lsqv:runTimeMs ?rt ;
