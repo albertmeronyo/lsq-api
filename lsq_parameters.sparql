@@ -11,19 +11,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT *  FROM <http://data.semanticweb.org>
 WHERE {
     ?id sp:text ?query ;
-        sp:distinct ?distinct ;
-        sp:limit ?limit ;
-        lsqv:bgps ?bgps ;
-        lsqv:endpoint ?endpoint ;
-        lsqv:joinVertices ?jv ;
-        lsqv:resultSize ?rs ;
-        lsqv:triplePatterns ?tp ;
-        lsqv:runTimeMs ?rt ;
-        lsqv:meanJoinVerticesDegree ?mjvd ;
-        lsqv:meanTriplePatternSelectivity ?mtps ;
-        lsqv:mentionsObject ?object ;
-        lsqv:mentionsPredicate ?predicate ;
-        lsqv:mentionsSubject ?subject ;
-        rdf:type ?_type_iri ;
-        lsqv:usesFeature ?_feature_iri .
+    lsqv:resultSize ?rs ;
+    rdf:type ?_type_iri ;
+    lsqv:usesFeature ?_feature_iri . 
 }
