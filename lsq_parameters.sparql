@@ -1,0 +1,27 @@
+#+ summary: Select LSQ queries by a number of parameters
+#+ endpoint: http://lsq.aksw.org/sparql
+#+ enumerate:
+#+    - feature
+#+    - type
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+PREFIX sp: <http://spinrdf.org/sp#>
+SELECT *  FROM <http://data.semanticweb.org>
+WHERE {
+    ?id sp:text ?query ;
+        sp:distinct ?distinct ;
+        sp:limit ?limit ;
+        lsqv:bgps ?bgps ;
+        lsqv:endpoint ?endpoint ;
+        lsqv:joinVertices ;
+        lsqv:resultSize ?rs ;
+        lsqv:triplePatterns ?tp ;
+        lsqv:runTimeMs ?rt ;
+        lsqv:meanJoinVerticesDegree ?mjvd ;
+        lsqv:meanTriplePatternSelectivity ?mtps ;
+        lsqv:mentionsObject ?object ;
+        lsqv:mentionsPredicate ?predicate ;
+        lsqv:mentionsSubject ?subject ;
+        rdf:type ?_type_iri ;
+        lsqv:usesFeature ?_feature_iri .
+}
