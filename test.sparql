@@ -1,0 +1,10 @@
+#+summary: Select LSQ queries by a number of parameters
+#+endpoint: http://lsq.aksw.org/sparql
+
+PREFIX lsqv: <http://lsq.aksw.org/vocab#>
+PREFIX sp: <http://spinrdf.org/sp#>
+SELECT *  FROM <http://data.semanticweb.org>
+ WHERE {
+    ?id sp:text ?query ; lsqv:resultSize ?rs ; lsqv:triplePatterns ?tp ;
+        lsqv:runTimeMs ?rt ; lsqv:usesFeature lsqv:Filter .
+   FILTER (?rs > 10 && ?tp <5  && ?rt < 50 ) }
